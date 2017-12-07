@@ -18,26 +18,22 @@ body {
 	<script type = "text/javascript">
 		var game = new Phaser.Game(256, 240, Phaser.CANVAS, '', this, false, false);
 		
-		function preload() {
-			//  We need this because the assets are on github pages
-			//  Remove the next 2 lines if running locally
-			this.load.baseURL = 'https://dimitrisg9.github.io/Super-Mario/';
-			this.load.crossOrigin = 'anonymous';
-			}
-		
-		var tm;
+		function preload(){
+		this.load.baseURL = 'https://dimitrisg9.github.io/Super-Mario/';
+		this.load.crossOrigin = 'anonymous';
+		}	
 		//instert score
            	var score = 0;
 		var scoreText;
-            	//instert lives
+            //instert lives
             	var lives=3;
             	var limage;
-            	var lcounter;
+           	var lcounter;
             
-       	 	game.state.add('Stage1', Stage1);
+		
+		game.state.add('Stage1', Stage1);
 		game.state.add('Menu', Menu);
 		game.state.start('Menu');
-		
 		
 		function pipeOverlap(player,pipe){
 	if (cursors.down.isDown && (player.body.onFloor())) {
@@ -49,8 +45,9 @@ body {
 					});
 	}
 }
-		
-		function squirtleOverlap(player, squirtle) {
+        
+        
+        function squirtleOverlap(player, squirtle) {
 			if (player.body.touching.down) {
 				squirtle.animations.stop();
 				stompsound.play();
