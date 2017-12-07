@@ -1,4 +1,4 @@
-var Menu = {
+var menu = {
 	preload: function() {
 
 		game.load.image('Menu', 'assets/Menu.png');
