@@ -1,4 +1,4 @@
-var Stage1 = {
+var stage1 = {
 
 	preload: function() {
 			
