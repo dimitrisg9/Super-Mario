@@ -1,26 +1,25 @@
-var stage1 = {
+var Stage1 = {
+		preload: function() {
 
-	preload: function() {
-			
-			
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
 					16);
 			this.load.spritesheet('goomba', 'assets/goomba.png',16, 16);
 			this.load.spritesheet('mario', 'assets/mario.png', 16, 16);
 			this.load.spritesheet('coin', 'assets/coin.png', 16, 16);
-            this.load.image('live','assets/mariolive.png');
-            this.load.spritesheet('squirtle', 'assets/squirtle.png',16, 16);
-			this.load.tilemap('level', 'assets/super_mario_map_new1.json', null,
+           		this.load.image('live','assets/mariolive.png');
+            		this.load.spritesheet('squirtle', 'assets/squirtle.png',16, 16);
+			game.load.tilemap('level', 'assets/super_mario_map_new1.json', null,
 					Phaser.Tilemap.TILED_JSON);
             //game sound
 			this.load.audio('jump','audio/jump.wav');
 			this.load.audio('coin','audio/coin.wav');
 			this.load.audio('stomp','audio/stomp.wav');
-            this.load.audio('background','audio/bgm.mp3');
-            this.load.audio('dead','audio/dead.mp3');
-			},
-			
-			create: function() {
+            		this.load.audio('background','audio/bgm.mp3');
+           		this.load.audio('dead','audio/dead.mp3');
+				
+		},
+		
+		create: function() {
 			Phaser.Canvas.setImageRenderingCrisp(game.canvas);
 			game.stage.backgroundColor = '#5c94fc';
 			map = game.add.tilemap('level');
@@ -81,17 +80,19 @@ var stage1 = {
             lcounter=game.add.text(158,20,'X'+lives,{font:'30px',fontSize: '8px',                   fill:'white'});
             limage.fixedToCamera=true;
 			lcounter.fixedToCamera=true;
+            if(lives==3){
+			alert("Let's go!!!");
+			}
             
             
             
             
    			game.camera.follow(player);
 			cursors = game.input.keyboard.createCursorKeys();
-            
-            
+
 		},
-		
-		update: function( {
+
+		update: function() {
 			game.physics.arcade.collide(player,pipe,pipeOverlap);
 			game.physics.arcade.collide(player, layer);
 			game.physics.arcade.collide(goombas, layer);
