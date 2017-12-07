@@ -81,9 +81,6 @@ var stage1 = {
             lcounter=game.add.text(158,20,'X'+lives,{font:'30px',fontSize: '8px',                   fill:'white'});
             limage.fixedToCamera=true;
 			lcounter.fixedToCamera=true;
-            if(lives==3){
-			alert("Let's go!!!");
-			}
             
             
             
